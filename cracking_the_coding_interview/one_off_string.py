@@ -20,7 +20,11 @@ def one_off_by_addition(string1, string2):
 
 
 def one_off_switch(string1, string2):
-    if sum(1 for i, j in zip(string1, string2) if ord(i) - ord(j) > 0) > 1:
+    number_of_different_characters = sum(
+        1 for i, j in zip(string1, string2) if ord(i) - ord(j) != 0
+    )
+
+    if number_of_different_characters > 1:
         return False
     return True
 

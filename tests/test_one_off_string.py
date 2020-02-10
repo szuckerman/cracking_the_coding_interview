@@ -42,3 +42,9 @@ def test_example7():
     string1 = "palep"
     string2 = "paleppp"
     assert oos.one_off_string(string1, string2) == False
+
+
+def test_example8():
+    string1 = "palep"
+    string2 = "sales"
+    assert oos.one_off_string(string1, string2) == False
