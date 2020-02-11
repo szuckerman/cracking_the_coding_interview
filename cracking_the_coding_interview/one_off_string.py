@@ -43,3 +43,37 @@ def one_off_string(string1, string2):
         return True
 
     return False
+
+
+def one_off_string_deque(string1, string2):
+    from collections import deque
+
+    d1 = deque()
+    d2 = deque()
+
+    string_iter1 = iter(string1)
+    string_iter2 = iter(string2)
+
+    letter1 = ""
+    letter2 = ""
+
+    while letter1 != "ITERATOR_DONE" and letter2 != "ITERATOR_DONE":
+        try:
+            letter1 = next(string_iter1, "ITERATOR_DONE")
+        except StopIteration:
+            letter1 = ""
+
+        try:
+            letter2 = next(string_iter2, "ITERATOR_DONE")
+        except StopIteration:
+            letter2 = ""
+
+        d1.append(letter1)
+        d2.append(letter2)
+
+        if d1[-1] == d2[-1]:
+            print(d1.pop())
+            print(d2.pop())
+
+    if len(d1) > 1:
+        return False
